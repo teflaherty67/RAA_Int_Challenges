@@ -21,18 +21,15 @@ namespace RAA_Int_Challenges
             return currentPanel;
         }
 
-        internal static List<string> GetAllDepartmentsByName(Document curDoc)
-        {
-            FilteredElementCollector m_colRooms = new FilteredElementCollector(curDoc)
-                .OfCategory(BuiltInCategory.OST_Rooms)
-                .WhereElementIsNotElementType();
 
+        internal static List<string> GetAllDepartmentsByName(Document curDoc, FilteredElementCollector colRooms)
+        {
             List<string> m_rawDepts = new List<string>();
-            
-            foreach (Room curRoom in m_colRooms)
+
+            foreach (Room curRoom in colRooms)
             {
                 string nameDepartment = curRoom.get_Parameter(BuiltInParameter.ROOM_DEPARTMENT).AsValueString();
-                m_rawDepts.Add(nameDepartment);                
+                m_rawDepts.Add(nameDepartment);
             }
 
             List<string> m_uniqueDepts = m_rawDepts.Distinct().ToList();
