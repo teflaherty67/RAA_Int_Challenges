@@ -1,4 +1,5 @@
 ﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,26 @@ namespace RAA_Int_Challenges
                 currentPanel = app.CreateRibbonPanel(tabName, panelName);
 
             return currentPanel;
+        }
+
+        internal static List<string> GetAllDepartmentsByName(Document curDoc)
+        {
+            FilteredElementCollector m_colRooms = new FilteredElementCollector(curDoc)
+                .OfCategory(BuiltInCategory.OST_Rooms)
+                .WhereElementIsNotElementType();
+
+            List<string> m_rawDepts = new List<string>();
+            
+            foreach (Room curRoom in m_colRooms)
+            {
+                string nameDepartment = curRoom.get_Parameter(BuiltInParameter.ROOM_DEPARTMENT).AsValueString();
+                m_rawDepts.Add(nameDepartment);                
+            }
+
+            List<string> m_uniqueDepts = m_rawDepts.Distinct().ToList();
+            m_uniqueDepts.Sort();
+
+            return m_uniqueDepts;
         }
 
         internal static RibbonPanel GetRibbonPanelByName(UIControlledApplication app, string tabName, string panelName)

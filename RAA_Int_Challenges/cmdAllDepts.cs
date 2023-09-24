@@ -14,7 +14,7 @@ using System.Reflection;
 namespace RAA_Int_Challenges
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command2 : IExternalCommand
+    public class cmdAllDepts : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

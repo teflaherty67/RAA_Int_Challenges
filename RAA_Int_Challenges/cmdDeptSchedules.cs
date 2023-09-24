@@ -14,7 +14,7 @@ using System.Reflection;
 namespace RAA_Int_Challenges
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command1 : IExternalCommand
+    public class cmdDeptSchedules : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -22,11 +22,15 @@ namespace RAA_Int_Challenges
             UIApplication uiapp = commandData.Application;
 
             // this is a variable for the current Revit model
-            Document doc = uiapp.ActiveUIDocument.Document;
+            Document curDoc = uiapp.ActiveUIDocument.Document;
 
-            // Your code goes here
+            // Get the department names           
+
+            List<string> nameDepartment = Utils.GetAllDepartmentsByName(curDoc);
 
 
+
+            
             return Result.Succeeded;
         }
         internal static PushButtonData GetButtonData()
