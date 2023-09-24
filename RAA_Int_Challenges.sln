@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAA_Int_Challenges", "RAA_Int_Challenges\RAA_Int_Challenges.csproj", "{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		2023Debug|Any CPU = 2023Debug|Any CPU
+		2023Release|Any CPU = 2023Release|Any CPU
+		2024Debug|Any CPU = 2024Debug|Any CPU
+		2024Release|Any CPU = 2024Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2023Debug|Any CPU.ActiveCfg = 2023Debug|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2023Debug|Any CPU.Build.0 = 2023Debug|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2023Release|Any CPU.ActiveCfg = 2023Release|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2023Release|Any CPU.Build.0 = 2023Release|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2024Debug|Any CPU.ActiveCfg = 2024Debug|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2024Debug|Any CPU.Build.0 = 2024Debug|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2024Release|Any CPU.ActiveCfg = 2024Release|Any CPU
+		{B9211993-A9B3-4AFA-98B1-7A6DD5BE590F}.2024Release|Any CPU.Build.0 = 2024Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5E71410-D75E-4348-83EF-67943439CFE4}
+	EndGlobalSection
+EndGlobal
