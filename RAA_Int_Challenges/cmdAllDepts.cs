@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Windows.Input;
 
 #endregion
 
@@ -22,9 +23,56 @@ namespace RAA_Int_Challenges
             UIApplication uiapp = commandData.Application;
 
             // this is a variable for the current Revit model
-            Document doc = uiapp.ActiveUIDocument.Document;
+            Document curDoc = uiapp.ActiveUIDocument.Document;
 
-            // Your code goes here
+            // Get the department names
+            FilteredElementCollector colRooms = new FilteredElementCollector(curDoc)
+                .OfCategory(BuiltInCategory.OST_Rooms)
+                .WhereElementIsNotElementType();
+
+            Element roomInst = colRooms.FirstElement();
+
+            // create & start the transaction
+            using (Transaction t = new Transaction(curDoc))
+            {
+                t.Start("Create Department Schedules");
+                {
+                    // get the element Id for rooms
+                    ElementId catId = new ElementId(BuiltInCategory.OST_Rooms);
+
+                    // create the schedule
+                    ViewSchedule newDeptSched = ViewSchedule.CreateSchedule(curDoc, catId);
+                    newDeptSched.Name = "All Departments";
+
+                    // get parameters for schedule fields                    
+                    Parameter paramRmDept = roomInst.LookupParameter("Department");
+                    Parameter paramRmArea = roomInst.get_Parameter(BuiltInParameter.ROOM_AREA);
+
+                    // create the fields                    
+                    ScheduleField fieldRmDept = newDeptSched.Definition.AddField(ScheduleFieldType.Instance, paramRmDept.Id);
+                    ScheduleField fieldRmArea = newDeptSched.Definition.AddField(ScheduleFieldType.ViewBased, paramRmArea.Id);
+
+                    // create the filter                    
+
+                    // set sorting & grouping
+                    ScheduleSortGroupField sortRmDept = new ScheduleSortGroupField(fieldRmDept.FieldId);
+                    sortRmDept.ShowHeader = true;
+                    sortRmDept.ShowFooter = true;
+                    sortRmDept.ShowBlankLine = true;
+                    newDeptSched.Definition.AddSortGroupField(sortRmDept);
+
+                    // set the formatting                    
+                    fieldRmArea.DisplayType = ScheduleFieldDisplayType.Totals;
+
+                    // calculate totals
+                    newDeptSched.Definition.IsItemized = false;
+                    newDeptSched.Definition.ShowGrandTotal = true;
+                    newDeptSched.Definition.ShowGrandTotalTitle = true;
+                    newDeptSched.Definition.ShowGrandTotalCount = true;
+                }
+
+                t.Commit();
+            }
 
 
             return Result.Succeeded;
