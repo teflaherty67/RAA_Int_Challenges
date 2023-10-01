@@ -52,7 +52,9 @@ namespace RAA_Int_Challenges
                     ScheduleField fieldRmDept = newDeptSched.Definition.AddField(ScheduleFieldType.Instance, paramRmDept.Id);
                     ScheduleField fieldRmArea = newDeptSched.Definition.AddField(ScheduleFieldType.ViewBased, paramRmArea.Id);
 
-                    // create the filter                    
+                    // create the filter
+                    ScheduleFilter areaFilter = new ScheduleFilter(fieldRmArea.FieldId, ScheduleFilterType.GreaterThan, 100.0);
+                    newDeptSched.Definition.AddFilter(areaFilter);
 
                     // set sorting & grouping
                     ScheduleSortGroupField sortRmDept = new ScheduleSortGroupField(fieldRmDept.FieldId);
