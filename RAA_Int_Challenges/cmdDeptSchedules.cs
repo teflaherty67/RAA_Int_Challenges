@@ -68,6 +68,9 @@ namespace RAA_Int_Challenges
                     ScheduleFilter deptFilter = new ScheduleFilter(fieldRmDept.FieldId, ScheduleFilterType.Equal, curDept);
                     newDeptSched.Definition.AddFilter(deptFilter);
 
+                    ScheduleFilter levelFilter = new ScheduleFilter(fieldRmLevel.FieldId, ScheduleFilterType.Equal, "02 - Floor");
+                    newDeptSched.Definition.AddFilter(levelFilter);
+
                     // set sorting & grouping
                     ScheduleSortGroupField sortRmLevel = new ScheduleSortGroupField(fieldRmLevel.FieldId);
                     sortRmLevel.ShowHeader = true;
