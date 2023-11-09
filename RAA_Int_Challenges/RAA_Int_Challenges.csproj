@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="cmdSchedulePalooza.cs" />
     <Compile Include="cmdTagIt.cs" />
     <Compile Include="Utils\ButtonDataClass.cs" />
     <Compile Include="cmdAllDepts.cs" />

@@ -38,6 +38,30 @@ namespace RAA_Int_Challenges
             return m_uniqueDepts;
         }
 
+        internal static List<Element> GetAllRooms(Document curDoc)
+        {
+            FilteredElementCollector m_colRooms = new FilteredElementCollector(curDoc)
+                .OfCategory(BuiltInCategory.OST_Rooms);
+
+            return m_colRooms.ToList();
+        }
+
+        internal static List<string> GetAllDepartmentsByName(Document curDoc, List<Element> listRooms)
+        {
+            List<string> m_rawDepts = new List<string>();
+
+            foreach (Room curRoom in listRooms)
+            {
+                string curDept = curRoom.LookupParameter("Department").AsString();
+                m_rawDepts.Add(curDept);
+            }
+
+            List<string> m_uniqueDepts = m_rawDepts.Distinct().ToList();
+            m_uniqueDepts.Sort();
+
+            return m_uniqueDepts;
+        }
+
         internal static RibbonPanel GetRibbonPanelByName(UIControlledApplication app, string tabName, string panelName)
         {
             foreach (RibbonPanel tmpPanel in app.GetRibbonPanels(tabName))
