@@ -72,5 +72,10 @@ namespace RAA_Int_Challenges
 
             return null;
         }
+
+        internal static ViewSchedule CreateRoomScheduleByDepartment(Document curDoc, string curDept)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -31,9 +31,11 @@ namespace RAA_Int_Challenges
             // 2. get department names
             List<string> listDepts = Utils.GetAllDepartmentsByName(curDoc, listRooms);
 
-           
-
-
+            // 3. loop through dept list and create schedules
+            foreach (string curDept  in listDepts)
+            {
+                ViewSchedule newSchedule = Utils.CreateRoomScheduleByDepartment(curDoc, curDept);
+            }     
 
             return Result.Succeeded;
         }
