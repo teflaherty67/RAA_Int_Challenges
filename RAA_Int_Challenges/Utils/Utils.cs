@@ -75,7 +75,18 @@ namespace RAA_Int_Challenges
 
         internal static ViewSchedule CreateRoomScheduleByDepartment(Document curDoc, string curDept)
         {
-            throw new NotImplementedException();
+            // 4a. create schedule
+            ViewSchedule curSchedule = CreateSchedule(curDoc, BuiltInCategory.OST_Rooms, $"Department - {curDoc}");
+        }
+
+        private static ViewSchedule CreateSchedule(Document curDoc, BuiltInCategory bic, string name)
+        {
+            ElementId catId = new ElementId(bic);
+
+            ViewSchedule newSchedule = ViewSchedule.CreateSchedule(curDoc, catId);
+            newSchedule.Name = name;
+
+            return newSchedule;
         }
     }
 }

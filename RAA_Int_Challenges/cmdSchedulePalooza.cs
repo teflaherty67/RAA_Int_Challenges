@@ -31,11 +31,21 @@ namespace RAA_Int_Challenges
             // 2. get department names
             List<string> listDepts = Utils.GetAllDepartmentsByName(curDoc, listRooms);
 
-            // 3. loop through dept list and create schedules
-            foreach (string curDept  in listDepts)
+            // create and start a transaction
+            using (Transaction t = new Transaction(curDoc))
             {
-                ViewSchedule newSchedule = Utils.CreateRoomScheduleByDepartment(curDoc, curDept);
-            }     
+                t.Start("Create Schedules");
+
+                // 3. loop through dept list
+                foreach (string curDept  in listDepts)
+                {
+                    // 4. create schedules
+                    ViewSchedule newSchedule = Utils.CreateRoomScheduleByDepartment(curDoc, curDept);
+                }
+                
+                // commit the changes
+                t.Commit();
+            }
 
             return Result.Succeeded;
         }
