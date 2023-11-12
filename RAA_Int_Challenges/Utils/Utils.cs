@@ -77,6 +77,9 @@ namespace RAA_Int_Challenges
         {
             // 4a. create schedule
             ViewSchedule curSchedule = CreateSchedule(curDoc, BuiltInCategory.OST_Rooms, $"Department - {curDoc}");
+
+            // 4b. get room instance
+            Element roomInst = GetAllRooms(curDoc).First();
         }
 
         private static ViewSchedule CreateSchedule(Document curDoc, BuiltInCategory bic, string name)
