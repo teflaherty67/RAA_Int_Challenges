@@ -80,6 +80,28 @@ namespace RAA_Int_Challenges
 
             // 4b. get room instance
             Element roomInst = GetAllRooms(curDoc).First();
+
+            // 4c. add fields to schedule
+            ScheduleField fieldRmNum = AddFieldToSchedule(curSchedule, ScheduleFieldType.Instance, GetParameterByName(roomInst, "Number"), false);
+            ScheduleField fieldRmLevel
+            ScheduleField fieldRmName
+            ScheduleField fieldRmDept
+            ScheduleField fieldRmComments
+            ScheduleField fieldRmArea   
+        }
+
+        private static Parameter GetParameterByName(Element curElem, string paramName)
+        {
+            Parameter curParam = curElem.LookupParameter(paramName);
+
+            return curParam;
+        }
+
+        private static Parameter GetParameterByName(Element curElem, BuiltInParameter bip)
+        {
+            Parameter curParam = curElem.get_Parameter(bip);
+
+            return curParam;
         }
 
         private static ViewSchedule CreateSchedule(Document curDoc, BuiltInCategory bic, string name)
