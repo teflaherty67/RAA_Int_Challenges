@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>RAA_Int_Challenges - Command 1</Text>
+    <Description>Some description</Description>
+    <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
+    <FullClassName>RAA_Int_Challenges.Command1</FullClassName>
+    <ClientId>eebe5dcc-f5e8-4fd8-83d0-b53c7bd3146f</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>RAA_Int_Challenges - Command 2</Text>
+    <Description>Some description</Description>
+    <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
+    <FullClassName>RAA_Int_Challenges.Command2</FullClassName>
+    <ClientId>55318134-a20e-4f45-9982-78e84b8fa666</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>RAA_Int_Challenges</Name>
+    <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
+    <FullClassName>RAA_Int_Challenges.App</FullClassName>
+    <ClientId>e4707cd4-44f0-4a64-acd5-b1400abd0e9a</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
