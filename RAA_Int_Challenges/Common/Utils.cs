@@ -46,7 +46,7 @@ namespace RAA_Int_Challenges.Common
             ScheduleField areaField = AddFieldToSchedule(curSched, ScheduleFieldType.ViewBased, GetParameterByName(roomInst, BuiltInParameter.ROOM_AREA), false);
             ScheduleField levelField = AddFieldToSchedule(curSched, ScheduleFieldType.Instance, GetParameterByName(roomInst, "Level"), true);
 
-           areaField.DisplayType = ScheduleFieldDisplayType.Totals;
+            areaField.DisplayType = ScheduleFieldDisplayType.Totals;
 
             // 4d. filter schedule by department
             ScheduleFilter deptFilter = new ScheduleFilter(deptField.FieldId, ScheduleFilterType.Equal, curDept);
