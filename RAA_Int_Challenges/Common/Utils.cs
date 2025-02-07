@@ -71,7 +71,7 @@ namespace RAA_Int_Challenges.Common
             return curSched;
         }
 
-        internal static ScheduleField AddFieldToSchedule(ViewSchedule curSched, ScheduleFieldType fieldType, Parameter parameter, bool isHidden)
+        private static ScheduleField AddFieldToSchedule(ViewSchedule curSched, ScheduleFieldType fieldType, Parameter parameter, bool isHidden)
         {
             ScheduleField curField = curSched.Definition.AddField(fieldType, parameter.Id);
             curField.IsHidden = isHidden;
@@ -79,14 +79,14 @@ namespace RAA_Int_Challenges.Common
             return curField;
         }
 
-        internal static Parameter GetParameterByName(Element curElem, string paramName)
+        private static Parameter GetParameterByName(Element curElem, string paramName)
         {
             Parameter curParam = curElem.LookupParameter(paramName);
 
             return curParam;
         }
 
-        internal static Parameter GetParameterByName(Element curElem, BuiltInParameter bip)
+        private static Parameter GetParameterByName(Element curElem, BuiltInParameter bip)
         {
             Parameter curParam = curElem.get_Parameter(bip);
 
@@ -117,8 +117,8 @@ namespace RAA_Int_Challenges.Common
 
             foreach (Room curRoom in listRooms)
             {
-                string nameDepartment = curRoom.get_Parameter(BuiltInParameter.ROOM_DEPARTMENT).AsValueString();
-                m_rawDepts.Add(nameDepartment);
+                string nameDept = curRoom.LookupParameter("Department").AsString();
+                m_rawDepts.Add(nameDept);
             }
 
             List<string> m_uniqueDepts = m_rawDepts.Distinct().ToList();

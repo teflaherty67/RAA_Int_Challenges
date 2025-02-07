@@ -2,9 +2,9 @@
 <RevitAddIns>
   <AddIn Type="Command">
     <Text>RAA_Int_Challenges - Command 1</Text>
-    <Description>Some description</Description>
+    <Description>Schedule Palooza</Description>
     <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
-    <FullClassName>RAA_Int_Challenges.Command1</FullClassName>
+    <FullClassName>RAA_Int_Challenges.cmdSchedPalooza</FullClassName>
     <ClientId>eebe5dcc-f5e8-4fd8-83d0-b53c7bd3146f</ClientId>
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
