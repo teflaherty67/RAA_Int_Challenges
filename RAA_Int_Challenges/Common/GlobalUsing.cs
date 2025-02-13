@@ -5,6 +5,7 @@ global using Autodesk.Revit.DB;
 global using Autodesk.Revit.UI;
 global using Autodesk.Revit.UI.Selection;
 global using System;
+global using System.IO;
 global using System.Collections.Generic;
 global using System.Diagnostics;
 global using System.Linq;
