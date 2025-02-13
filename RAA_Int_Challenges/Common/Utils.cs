@@ -53,14 +53,14 @@ namespace RAA_Int_Challenges.Common
             curSched.Definition.AddFilter(deptFilter);
 
             // 4e. sort and group schedule
-            ScheduleSortGroupField levelSort = new ScheduleSortGroupField(levelField.FieldId, ScheduleSortOrder.Ascending);
-            levelSort.ShowHeader = true;
-            levelSort.ShowFooter = true;
-            levelSort.ShowBlankLine = true;
-            curSched.Definition.AddSortGroupField(levelSort);
+            ScheduleSortGroupField sortLevel = new ScheduleSortGroupField(levelField.FieldId, ScheduleSortOrder.Ascending);
+            sortLevel.ShowHeader = true;
+            sortLevel.ShowFooter = true;
+            sortLevel.ShowBlankLine = true;
+            curSched.Definition.AddSortGroupField(sortLevel);
 
-            ScheduleSortGroupField roomNameSort = new ScheduleSortGroupField(roomNameField.FieldId, ScheduleSortOrder.Ascending);
-            curSched.Definition.AddSortGroupField(roomNameSort);
+            ScheduleSortGroupField sortRoomName = new ScheduleSortGroupField(roomNameField.FieldId, ScheduleSortOrder.Ascending);
+            curSched.Definition.AddSortGroupField(sortRoomName);
 
             // 4f. set grand total properties
             curSched.Definition.IsItemized = true;
