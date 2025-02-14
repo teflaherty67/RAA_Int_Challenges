@@ -13,4 +13,5 @@ global using System.Reflection;
 global using Autodesk.Revit.DB.Architecture;
 global using TaskDialog = Autodesk.Revit.UI.TaskDialog;
 global using Icon = Autodesk.Revit.UI.TaskDialogIcon;
+global using View = Autodesk.Revit.DB.View;
 

@@ -50,7 +50,7 @@ namespace RAA_Int_Challenges
             string buttonInternalName = "btnCommand1";
             string buttonTitle = "Button 1";
 
-            Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
+            Common.clsButtonData myButtonData = new Common.clsButtonData(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,

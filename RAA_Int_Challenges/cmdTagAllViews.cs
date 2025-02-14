@@ -1,7 +1,7 @@
 ﻿namespace RAA_Int_Challenges
 {
     [Transaction(TransactionMode.Manual)]
-    public class Command2 : IExternalCommand
+    public class cmdTagAllViews : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -21,7 +21,7 @@
             string buttonInternalName = "btnCommand2";
             string buttonTitle = "Button 2";
 
-            Common.ButtonDataClass myButtonData = new Common.ButtonDataClass(
+            Common.clsButtonData myButtonData = new Common.clsButtonData(
                 buttonInternalName,
                 buttonTitle,
                 MethodBase.GetCurrentMethod().DeclaringType?.FullName,

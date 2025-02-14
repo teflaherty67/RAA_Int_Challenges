@@ -2,10 +2,10 @@
 
 namespace RAA_Int_Challenges.Common
 {
-    internal class ButtonDataClass
+    internal class clsButtonData
     {
         public PushButtonData Data { get; set; }
-        public ButtonDataClass(string name, string text, string className,
+        public clsButtonData(string name, string text, string className,
             byte[] largeImage,
             byte[] smallImage,
             string toolTip)
@@ -20,7 +20,7 @@ namespace RAA_Int_Challenges.Common
             string nameSpace = this.GetType().Namespace;
             Data.AvailabilityClassName = $"{nameSpace}.CommandAvailability";
         }
-        public ButtonDataClass(string name, string text, string className,
+        public clsButtonData(string name, string text, string className,
             byte[] largeImage,
             byte[] smallImage,
             byte[] largeImageDark,
