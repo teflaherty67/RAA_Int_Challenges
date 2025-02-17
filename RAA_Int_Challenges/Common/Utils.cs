@@ -33,7 +33,7 @@ namespace RAA_Int_Challenges.Common
         internal static ViewSchedule CreateRoomScheduleByDepartment(Document curDoc, string curDept)
         {
             // 4a. create schedule
-            ViewSchedule curSched = CreateSchedule(curDoc, BuiltInCategory.OST_Rooms, $"Department - {curDoc}");
+            ViewSchedule curSched = CreateSchedule(curDoc, BuiltInCategory.OST_Rooms, $"Department - {curDept}");
 
             // 4b. get room instance
             Element roomInst = GetAllRooms(curDoc).First();
