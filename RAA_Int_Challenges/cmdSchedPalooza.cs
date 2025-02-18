@@ -27,13 +27,13 @@ namespace RAA_Int_Challenges
                 // 03. loop through department list
                 foreach(string curDept in listDepts)
                 {
-                    // .04 create the schedule
-                    ViewSchedule newSchedule = Utils.CreateRoomScheduleByDepartment(curDoc, curDept);
+                    // .04 create department schedules
+                    ViewSchedule newSched = Utils.CreateRoomScheduleByDepartment(curDoc, curDept);
                     counter++;
                 }
 
                 // 05. create all departments schedule
-                ViewSchedule newSchedule2 = Utils.CreateDepartmentSchedule(curDoc);
+                ViewSchedule newSched2 = Utils.CreateDepartmentSchedule(curDoc);
 
                 // commit the changes
                 t.Commit();

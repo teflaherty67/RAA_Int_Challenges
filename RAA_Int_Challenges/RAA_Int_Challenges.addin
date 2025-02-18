@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
   <AddIn Type="Command">
-    <Text>RAA_Int_Challenges - Command 1</Text>
+    <Text>Schedule Palooza</Text>
     <Description>Schedule Palooza</Description>
     <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
     <FullClassName>RAA_Int_Challenges.cmdSchedPalooza</FullClassName>
