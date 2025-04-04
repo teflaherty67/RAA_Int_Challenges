@@ -1,4 +1,6 @@
-﻿namespace RAA_Int_Challenges
+﻿using RAA_Int_Challenges.Common;
+
+namespace RAA_Int_Challenges
 {
     [Transaction(TransactionMode.Manual)]
     public class cmdTagView : IExternalCommand
@@ -15,13 +17,25 @@
             ViewType curViewType = curView.ViewType;
 
             // 02. get the categories for this view type
-           
+            List<BuiltInCategory> catList = new List<BuiltInCategory>();
+
+            // 02a. create a dictionary to hold the categories
+            Dictionary<ViewType, List<BuiltInCategory>> viewTypeCatDictionary = Utils.GetViewTypeCatDictionary();
+
+            // 02b. try to match the view type to a dictionary
+            if(viewTypeCatDictionary.TryGetValue(curViewType, out catList) == false)
+            {
+                TaskDialog.Show("Error", "Cannot add tags to this view type.");
+                return Result.Failed;
+            }
 
             // 03. get elements to tag for the view type
+            ElementMulticategoryFilter catFilter = new ElementMulticategoryFilter(catList);
+            FilteredElementCollector colElem = new FilteredElementCollector(curDoc, curView.Id);
+            colElem.WherePasses(catFilter).WhereElementIsNotElementType();
+
 
             // 04. report to the user the number of tags placed
-
-
 
 
             return Result.Succeeded;

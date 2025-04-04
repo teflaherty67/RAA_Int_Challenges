@@ -151,5 +151,32 @@ namespace RAA_Int_Challenges.Common
 
             return curSched;
         }
+
+        internal static Dictionary<ViewType, List<BuiltInCategory>> GetViewTypeCatDictionary()
+        {
+            // create an empty dictionary to hold the keys & values
+            Dictionary<ViewType, List<BuiltInCategory>> m_dictionary = new Dictionary<ViewType, List<BuiltInCategory>>();
+
+            // add the keys and values to the dictionary
+            m_dictionary.Add(ViewType.FloorPlan, new List<BuiltInCategory>
+            {
+                BuiltInCategory.OST_Rooms,
+                BuiltInCategory.OST_Windows,
+                BuiltInCategory.OST_Doors,
+                BuiltInCategory.OST_Furniture,
+                BuiltInCategory.OST_Walls
+            });
+            m_dictionary.Add(ViewType.AreaPlan, new List<BuiltInCategory> { BuiltInCategory.OST_Areas });
+
+            m_dictionary.Add(ViewType.CeilingPlan, new List<BuiltInCategory>
+            {
+                BuiltInCategory.OST_Rooms,
+                BuiltInCategory.OST_LightingFixtures
+            });
+
+            m_dictionary.Add(ViewType.Section, new List<BuiltInCategory> { BuiltInCategory.OST_Rooms });
+
+            return m_dictionary;
+        }
     }
 }
