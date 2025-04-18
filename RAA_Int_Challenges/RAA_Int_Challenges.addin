@@ -10,10 +10,10 @@
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
   </AddIn>
   <AddIn Type="Command">
-    <Text>RAA_Int_Challenges - Command 2</Text>
-    <Description>Some description</Description>
+    <Text>Tag Your It</Text>
+    <Description>Tag elements per view type</Description>
     <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
-    <FullClassName>RAA_Int_Challenges.Command2</FullClassName>
+    <FullClassName>RAA_Int_Challenges.cmdTagView</FullClassName>
     <ClientId>55318134-a20e-4f45-9982-78e84b8fa666</ClientId>
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>

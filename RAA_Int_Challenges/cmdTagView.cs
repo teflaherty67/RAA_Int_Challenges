@@ -34,6 +34,13 @@ namespace RAA_Int_Challenges
             FilteredElementCollector colElem = new FilteredElementCollector(curDoc, curView.Id);
             colElem.WherePasses(catFilter).WhereElementIsNotElementType();
 
+            TaskDialog.Show("Test", $"Found {colElem.Count()} elements");
+
+            // 04. loop through the elements and tag
+            int counter = 0;
+
+
+
 
             // 04. report to the user the number of tags placed
 
