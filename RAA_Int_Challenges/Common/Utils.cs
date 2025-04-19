@@ -203,5 +203,33 @@ namespace RAA_Int_Challenges.Common
             
             return midPoint;
         }
+
+        internal static Dictionary<string, FamilySymbol> GetTagDictionary(Document curDoc)
+        {
+            // create empty dictionary
+            Dictionary<string, FamilySymbol> m_tagDict = new Dictionary<string, FamilySymbol>();
+
+            // add keys & values to empty dictionary
+            m_tagDict.Add("Rooms", GetTagByName(curDoc, "M_Room Tag"));
+            m_tagDict.Add("Doors", GetTagByName(curDoc, "M_Door Tag"));
+            m_tagDict.Add("Windows", GetTagByName(curDoc, "M_Window Tag"));
+            m_tagDict.Add("Furniture", GetTagByName(curDoc, "M_Furniture Tag"));
+            m_tagDict.Add("Lighting Fixtures", GetTagByName(curDoc, "M_Lighting Fixture Tag"));
+            m_tagDict.Add("Walls", GetTagByName(curDoc, "M_Wall Tag"));
+            m_tagDict.Add("Curtain Walls", GetTagByName(curDoc, "M_Curtain Wall Tag"));
+            m_tagDict.Add("Areas", GetTagByName(curDoc, "M_Area Tag"));
+
+            return m_tagDict;
+        }
+
+        private static FamilySymbol GetTagByName(Document curDoc, string tagName)
+        {
+            return new FilteredElementCollector(curDoc)
+                .OfClass(typeof(FamilySymbol))
+                .Cast<FamilySymbol>()
+                .Where(x => x.FamilyName.Equals(tagName))
+                .First();
+
+        }
     }
 }

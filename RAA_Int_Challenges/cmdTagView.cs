@@ -34,7 +34,10 @@ namespace RAA_Int_Challenges
             FilteredElementCollector colElem = new FilteredElementCollector(curDoc, curView.Id);
             colElem.WherePasses(catFilter).WhereElementIsNotElementType();
 
-            TaskDialog.Show("Test", $"Found {colElem.Count()} elements");
+            // TaskDialog.Show("Test", $"Found {colElem.Count()} elements");
+
+            // 06. create dictionary of tag family symbols
+            Dictionary<string, FamilySymbol> dictionaryTags = Utils.GetTagDictionary(curDoc);
 
             // 04. loop through the elements and tag
             int counter = 0;
@@ -48,6 +51,11 @@ namespace RAA_Int_Challenges
 
                 // 05. get insertion point based on element type
                 XYZ point = Utils.GetInsertPoint(curElem.Location);
+
+                if (point == null)
+                    continue;
+
+                
             }
 
 
