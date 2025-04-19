@@ -178,5 +178,30 @@ namespace RAA_Int_Challenges.Common
 
             return m_dictionary;
         }
+
+        internal static XYZ GetInsertPoint(Location curLoc)
+        {
+            LocationPoint locPoint = curLoc as LocationPoint;
+            XYZ point;
+
+            if (locPoint != null)
+            {
+                point = locPoint.Point;
+            }
+            else
+            {
+                LocationCurve locCurve = curLoc as LocationCurve;
+                point = MidpointBetweenTwoPoints(locCurve.Curve.GetEndPoint(0), locCurve.Curve.GetEndPoint(1));
+            }
+
+            return point;
+        }
+
+        private static XYZ MidpointBetweenTwoPoints(XYZ point1, XYZ point2)
+        {
+            XYZ midPoint = new XYZ((point1.X + point2.X) / 2, (point1.Y + point2.Y) / 2, (point1.Z + point2.Z) / 2);
+            
+            return midPoint;
+        }
     }
 }

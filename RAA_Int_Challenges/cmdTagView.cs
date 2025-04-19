@@ -39,6 +39,17 @@ namespace RAA_Int_Challenges
             // 04. loop through the elements and tag
             int counter = 0;
 
+            foreach(Element curElem in colElem)
+            {
+                bool addLeader = false;
+
+                if (curElem.Location == null)
+                    continue;
+
+                // 05. get insertion point based on element type
+                XYZ point = Utils.GetInsertPoint(curElem.Location);
+            }
+
 
 
 
