@@ -42,19 +42,52 @@ namespace RAA_Int_Challenges
             // 04. loop through the elements and tag
             int counter = 0;
 
-            foreach(Element curElem in colElem)
+            using(Transaction t = new Transaction(curDoc))
             {
-                bool addLeader = false;
+                t.Start("Tag Elements");
 
-                if (curElem.Location == null)
-                    continue;
+                foreach(Element curElem in colElem)
+                {
+                    bool addLeader = false;
 
-                // 05. get insertion point based on element type
-                XYZ point = Utils.GetInsertPoint(curElem.Location);
+                    if (curElem.Location == null)
+                        continue;
 
-                if (point == null)
-                    continue;                
-            }
+                    // 05. get insertion point based on element type
+                    XYZ point = Utils.GetInsertPoint(curElem.Location);
+
+                    if (point == null)
+                        continue;
+                
+                    // 07. get element category
+                    string catName = curElem.Category.Name;
+
+                    // 08. get tag based on element category
+                    FamilySymbol elemTag = dictionaryTags[catName];
+
+                    // 09. tag the elements
+                    if(catName == "Areas")
+                    {
+                        // do something
+                    }
+                    else
+                    {
+                        IndependentTag newTag = IndependentTag.Create(curDoc, elemTag.Id, curView.Id,
+                            new Reference(curElem), addLeader, TagOrientation.Horizontal, point);
+
+                        // 09a. offset tags as needed
+                        if (catName == "Windows")
+                            newTag.TagHeadPosition = point.Add(new XYZ(0, 3, 0));
+
+                        if (curView.ViewType == ViewType.Section)
+                            newTag.TagHeadPosition = point.Add(new XYZ(0, 0, 3));
+                    }
+
+                    counter++;
+                }
+
+                t.Commit();
+            }  
 
             return Result.Succeeded;
         }
