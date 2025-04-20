@@ -53,16 +53,8 @@ namespace RAA_Int_Challenges
                 XYZ point = Utils.GetInsertPoint(curElem.Location);
 
                 if (point == null)
-                    continue;
-
-                
+                    continue;                
             }
-
-
-
-
-            // 04. report to the user the number of tags placed
-
 
             return Result.Succeeded;
         }
