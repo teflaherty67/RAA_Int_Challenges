@@ -62,13 +62,28 @@ namespace RAA_Int_Challenges
                     // 07. get element category
                     string catName = curElem.Category.Name;
 
+                    // 10. check catName for Walls
+                    if(catName == "Walls")
+                    {
+                        addLeader = true;
+
+                        if (Utils.IsCurtainWall(curElem))
+                            catName = "Curtain Walls";
+                    }
+
                     // 08. get tag based on element category
                     FamilySymbol elemTag = dictionaryTags[catName];
 
                     // 09. tag the elements
                     if(catName == "Areas")
                     {
-                        // do something
+                        ViewPlan curAreaPlan = curView as ViewPlan;
+                        Area curArea = curElem as Area;
+
+                        // create the area tag
+                        AreaTag newTag = curDoc.Create.NewAreaTag(curAreaPlan, curArea, new UV(point.X, point.Y));
+                        newTag.TagHeadPosition = new XYZ(point.X, point.Y, 0);
+                        newTag.HasLeader = false;
                     }
                     else
                     {
@@ -87,7 +102,9 @@ namespace RAA_Int_Challenges
                 }
 
                 t.Commit();
-            }  
+            }
+
+            TaskDialog.Show("Complete", $"Added {counter} tags to the view");
 
             return Result.Succeeded;
         }

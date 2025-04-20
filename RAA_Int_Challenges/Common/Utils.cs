@@ -231,5 +231,33 @@ namespace RAA_Int_Challenges.Common
                 .First();
 
         }
+
+        internal static bool IsCurtainWall(Element curElem)
+        {
+            Wall curWall = curElem as Wall;
+
+            if (curWall.WallType.Kind == WallKind.Curtain)
+                return true;
+
+            return false;
+        }
+
+        internal static List<View> GetAllViews(Document curDoc)
+        {
+            // gets all views and excludes any view templates
+            List<View> m_returnList = new List<View>();
+
+            FilteredElementCollector m_colViews = new FilteredElementCollector(curDoc)
+                .OfCategory(BuiltInCategory.OST_Views)
+                .WhereElementIsNotElementType();
+
+            foreach (View view in m_colViews)
+            {
+                if (view.IsTemplate == false)
+                    m_returnList.Add(view);
+            }
+
+            return m_returnList;
+        }
     }
 }
