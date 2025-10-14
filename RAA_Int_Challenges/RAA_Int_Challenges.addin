@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RevitAddIns>
   <AddIn Type="Command">
-    <Text>Schedule Palooza</Text>
+    <Text>Dimension Grid</Text>
     <Description>Schedule Palooza</Description>
     <Assembly>RAA_Int_Challenges\RAA_Int_Challenges.dll</Assembly>
-    <FullClassName>RAA_Int_Challenges.cmdSchedPalooza</FullClassName>
+    <FullClassName>RAA_Int_Challenges.cmdDimGrid</FullClassName>
     <ClientId>eebe5dcc-f5e8-4fd8-83d0-b53c7bd3146f</ClientId>
     <VendorId>com.YOUR COMPANY NAME</VendorId>
     <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
