@@ -13,7 +13,7 @@ namespace RAA_Int_Challenges
             Document curDoc = uidoc.Document;
 
             // get all grid lines
-            FilteredElementCollector colGrids = new FilteredElementCollector(curDoc)
+            FilteredElementCollector colGrids = new FilteredElementCollector(curDoc, curDoc.ActiveView.Id)
                 .OfCategory(BuiltInCategory.OST_Grids)
                 .WhereElementIsNotElementType();
 
